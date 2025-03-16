@@ -15,15 +15,20 @@
       crossorigin="anonymous"
     ></script>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      // JavaScript to toggle the navbar on small screens
+      function toggleMenu() {
+        const menu = document.getElementById("nav-menu");
+        menu.classList.toggle("hidden");
+      }
+    </script>
   </head>
   <body>
     <header class="text-gray-600 body-font">
-      <div
-        class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center"
-      >
+      <div class="container mx-auto flex py-5 md:flex-row items-center gap-2">
         <a
           href="/"
-          class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0"
+          class="flex title-font font-medium items-center justify-center text-gray-900 p-2"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -41,14 +46,30 @@
           </svg>
           <span class="ml-3 text-xl">Team Project</span>
         </a>
-        <nav
-          class="md:ml-auto flex flex-wrap items-center text-base justify-center"
+
+        <!-- Hamburger Icon for Mobile -->
+        <button
+          class="inline-flex p-3 rounded-lg md:hidden text-gray-500 ml-auto hover:text-gray-900"
+          onClick="toggleMenu()"
         >
-          <a
-            class="mr-5 hover:text-gray-900 hover:underline hover:font-semibold"
-            href="/"
-            >Home</a
+          <svg
+            fill="none"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            class="w-6 h-6"
+            viewBox="0 0 24 24"
           >
+            <path d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+
+        <!-- Navbar Links (Hidden on mobile) -->
+        <nav
+          id="nav-menu-large"
+          class="hidden md:flex md:ml-auto flex-wrap items-center text-base justify-center"
+        >
           <a
             class="mr-5 hover:text-gray-900 hover:underline hover:font-semibold"
             href="/spam"
@@ -57,7 +78,7 @@
           <a
             class="mr-5 hover:text-gray-900 hover:underline hover:font-semibold"
             href="/rest"
-            >Resturant Review</a
+            >Restaurant Review</a
           >
           <a
             class="mr-5 hover:text-gray-900 hover:underline hover:font-semibold"
@@ -71,6 +92,18 @@
           >
         </nav>
       </div>
+
+      <nav
+        id="nav-menu"
+        class="md:hidden flex w-full flex-col m-4 items-center text-base justify-center fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 transition-all duration-300 items-start gap-2 shadow-xl bg-gray-100 p-3 rounded-lg"
+      >
+        <a class="w-full text-start py-2" href="/spam">Scam Detector</a>
+        <a class="w-full text-start py-2" href="/rest">Restaurant Review</a>
+        <a class="w-full text-start py-2" href="/movie">Movie Genre</a>
+        <a class="w-full text-start py-2" href="/diabetes"
+          >Diabetes Predictor</a
+        >
+      </nav>
     </header>
 
     <main class="flex flex-col justify-center items-center">
