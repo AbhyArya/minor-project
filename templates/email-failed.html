@@ -1,0 +1,30 @@
+{% extends "base.html" %} {% block title %}Diabetes Predictor{% endblock %} {%
+block content %}
+
+<div class="h-screen flex flex-col justify-center items-center">
+  <div class="text-center text-black">
+    <h1 class="text-3xl font-bold tracking-wide mb-4">Hey {{ name }},</h1>
+
+    <h2 class="text-xl font-semibold tracking-wide mb-6">
+      Sorry, we could not send the email
+    </h2>
+
+    <p class="text-lg mb-8 px-4 md:px-12">
+      you can try again or contact us at
+      <a href="mailto:aky8507049610@gmail.com" class="text-indigo-500"
+        >aky8507049610@gmail.com</a
+      >.
+    </p>
+
+    <div class="mt-6">
+      <a
+        href="/#contact"
+        class="flex mx-auto text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg max-w-max"
+      >
+        Try Again
+      </a>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

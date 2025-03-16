@@ -1,0 +1,52 @@
+{% extends "base.html" %} {% block title %}Restaurant Review's Sentiment
+Analysis{% endblock %} {% block content %}
+<div class="px-10 lg:w-4/5 mx-auto min-h-screen">
+  <div class="px-4 lg:px-10 lg:w-4/5 mx-auto">
+    <!-- Website Title -->
+    <div class="container">
+      <h2
+        class="container-heading text-3xl lg:text-4xl font-bold text-center mt-12 lg:mt-16 mb-4"
+      >
+        <span class="text-indigo-600">Restaurant Review's</span> Sentiment
+        Analyser
+      </h2>
+      <div class="description text-center mb-8 lg:mb-12">
+        <p class="text-gray-700 text-lg lg:text-xl">
+          A Machine Learning Web App, Built with Flask, Deployed using Heroku.
+        </p>
+      </div>
+    </div>
+
+    <!-- Result -->
+    <div
+      class="results flex flex-col lg:flex-row items-center justify-center lg:justify-between"
+    >
+      {% if prediction==1 %}
+      <div class="flex flex-col items-center">
+        <h1 class="text-2xl lg:text-3xl font-bold text-green-500 mb-4">
+          Prediction:
+          <span class="safe">Great! This is a POSITIVE Review.</span>
+        </h1>
+        <img
+          class="gif mb-4 lg:mb-0 lg:ml-4 w-72 lg:w-auto"
+          src="{{ url_for('static', filename='positive-review.webp') }}"
+          alt="Positive Review"
+        />
+      </div>
+      {% elif prediction==0 %}
+      <div class="flex flex-col items-center">
+        <h1 class="text-2xl lg:text-3xl font-bold text-red-500 mb-4">
+          Prediction:
+          <span class="danger">Oops! This is a NEGATIVE Review.</span>
+        </h1>
+        <img
+          class="gif mb-4 lg:mb-0 lg:mr-4 w-72 lg:w-auto"
+          src="{{ url_for('static', filename='negative-review.webp') }}"
+          alt="Negative Review"
+        />
+      </div>
+      {% endif %}
+    </div>
+  </div>
+</div>
+{% endblock %}

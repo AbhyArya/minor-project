@@ -1,0 +1,47 @@
+{% extends "base.html" %} {% block title %}Diabetes Prediction{% endblock %} {%
+block content %}
+<div class="px-10 lg:w-4/5 mx-auto min-h-screen">
+  <!-- Website Title -->
+  <div class="container">
+    <h2
+      class="container-heading text-3xl lg:text-4xl font-bold text-center mt-12 lg:mt-16 mb-4"
+    >
+      <span class="text-indigo-600">Diabetes Predictor</span>
+    </h2>
+    <div class="description text-center mb-8 lg:mb-12">
+      <p class="text-gray-700 text-lg lg:text-xl">
+        A Machine Learning Web App, Built with Flask, Deployed using Heroku.
+      </p>
+    </div>
+  </div>
+
+  <!-- Result -->
+  <div class="results flex flex-col justify-center items-center">
+    {% if prediction==1 %}
+    <h1 class="text-3xl md:text-4xl lg:text-5xl text-center font-bold">
+      Prediction:
+      <span class="danger result-prediction text-red-600"
+        >Oops! You have DIABETES.</span
+      >
+    </h1>
+    <img
+      class="gif mt-4"
+      src="{{ url_for('static', filename='diabetes.webp') }}"
+      alt="Diabetes Image"
+    />
+    {% elif prediction==0 %}
+    <h1 class="text-3xl md:text-4xl lg:text-5xl text-center font-bold">
+      Prediction:
+      <span class="safe result-prediction text-green-600"
+        >Great! You DON'T have diabetes.</span
+      >
+    </h1>
+    <img
+      class="gif1 mt-4"
+      src="{{ url_for('static', filename='no-diabetes.webp') }}"
+      alt="Not Diabetes Image"
+    />
+    {% endif %}
+  </div>
+</div>
+{% endblock %}
